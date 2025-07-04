@@ -12,6 +12,7 @@ from PIL import Image
 import numpy as np
 import io
 import requests
+import time
 
 # 配置
 CONF_THRESHOLD = float(os.getenv("CONFIDENCE_THRESHOLD", 0.7))
@@ -102,7 +103,7 @@ def process_image(image):
     # 总时间计算
     timing_info["total_processing_time"] = time.time() - start_total
     print(f"总处理时间：{timing_info['total_processing_time']:.2f}秒")
-    
+
     return faces, timing_info
 
 @app.post("/detect")
